@@ -79,7 +79,6 @@ window.onload = function () {
 
     const piecesBlock = document.getElementsByClassName("drag-drop");
     for (let i = 0; i < piecesBlock.length; i++) {
-       // piecesBlock[i].innerHTML = pieces[i];
         var image = "url(assets/images3/piece-" + pieces[i] + ".jpg)";
         piecesBlock[i].style.backgroundImage = image;
         piecesBlock[i].style.backgroundSize = "cover";
@@ -101,19 +100,14 @@ window.onload = function () {
 
     for (let i = 0; i < 12; i++) {
         let lockInd = lockedIndex[i] - 1;
-        //console.log(piecesBlock)
         var image = "url(assets/images/lock.png)";
         piecesBlock[lockInd].style.backgroundImage = image;
         piecesBlock[lockInd].classList.remove("draggable");
         piecesBlock[lockInd].classList.add("locked");
     }
 
-
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
-    //console.log(shuffledQuestions)
-    //setNextQuestion()
-
 }
 
 
@@ -123,40 +117,17 @@ function allAreTrue(arr) {
     return arr.every(element => element === true);
 }
 
-//console.log(gameCompleteArray)
-//console.log(allAreTrue(gameCompleteArray))
-
-
 //Interact.js-----------------------------------------------------------------------------------------------------------
 var element = document.getElementById("schedule");
 var player = 0
 interact('.btn');
-
-/*DELETE AFTER +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        const strPiece = draggableElement.className;
-        const wordsPiece = strPiece.split(' ');
-        var tmpStrPiece="piece-";
-
-
-
-        const wordIndex = wordsPiece.findIndex(element => {
-          if (element.includes(tmpStrPiece)) {
-            return true;
-          }
-        });
-        const numPiece = wordsPiece[wordIndex].split('-');
-        console.log("pice: "+numPiece[1]);
-*/
-
 
 let availablePlayers = [0, 1, 2, 3]
 availablePlayers.sort(() => Math.random() - .5)
 
 interact('.locked')
     .on('tap', function (event) {
-        //console.log("tap");
         const strPlayer = event.target.className;
-        console.log(strPlayer)
         const wordsPlayer = strPlayer.split(' ');
         const tmpStrPlayer = "player-";
 
@@ -168,7 +139,6 @@ interact('.locked')
             }
         });
         const unlockPiece = wordsPlayer[wordIndex]
-        console.log("Unlock: " + unlockPiece)
 
         wordIndex = wordsPlayer.findIndex(element => {
             if (element.includes(tmpStrPlayer)) {
@@ -176,16 +146,10 @@ interact('.locked')
             }
         });
         const numPlayer = wordsPlayer[wordIndex].split('-');
-        console.log("player: " + numPlayer[1]);
-
-
-        console.log(availablePlayers)
-        //console.log(availablePlayers.indexOf(parseInt(numPlayer[1])))
 
         if ((plIndex = availablePlayers.indexOf(parseInt(numPlayer[1]))) != -1) {
             availablePlayers.splice(plIndex, 1)
             if (availablePlayers.length >= 1) {
-                //console.log("player to play= " + availablePlayers.shift())
                 event.target.classList.remove("locked");
                 setNextQuestion(availablePlayers.shift(), unlockPiece)
             }
@@ -193,16 +157,11 @@ interact('.locked')
             availablePlayers.sort(() => Math.random() - .5)
         } else {
             if (availablePlayers.length >= 1) {
-                // console.log("player to play= " + availablePlayers.shift())
                 event.target.classList.remove("locked");
                 setNextQuestion(availablePlayers.shift(), unlockPiece)
             }
         }
 
-        //  console.log(availablePlayers)
-
-
-       
         event.preventDefault()
     });
 
@@ -222,7 +181,6 @@ interact('.draggable')
         // enable autoScroll
         autoScroll: false,
 
-
         listeners: {
 
             // call this function on every dragmove event
@@ -234,47 +192,29 @@ interact('.draggable')
 
 // enable draggables to be dropped into this
 interact('.dropzone').dropzone({
-    // only accept elements matching this CSS selector
     //accept: '#dragabble-1',
-    //WSaccept: '#dragabble-2',
-    // Require a 75% element overlap for a drop to be possible
     overlap: 0.6,
 
     // listen for drop related events:
 
     ondropactivate: function (event) {
-        // add active dropzone feedback
-        // event.target.classList.add('drop-active');                    
+        // add active dropzone feedback                  
     },
     ondragenter: function (event) {
         var draggableElement = event.relatedTarget,
             dropzoneElement = event.target;
-
         // feedback the possibility of a drop
-        // dropzoneElement.classList.add('drop-target');
-        //draggableElement.classList.add('can-drop');
-        // draggableElement.textContent = 'Dragged in';
     },
     ondragleave: function (event) {
         // remove the drop feedback style
-        // event.target.classList.remove('drop-target');
-        //event.relatedTarget.classList.remove('can-drop');
-        //event.relatedTarget.textContent = 'Dragged out';
         const strPiece = event.relatedTarget.className;
         const wordsPiece = strPiece.split(' ');
         const numPiece = wordsPiece[2].split('-');
-        //console.log("pice: "+numPiece[1]);
-
         const strZone = event.target.id;
-        //console.log(strZone);
         const numZone = strZone.split('-');
-        //console.log("Zone: "+numZone[1]);
-
         if (numZone[1] === numPiece[1]) {
             gameCompleteArray[numZone[1] - 1] = false;
-            //console.log(gameCompleteArray);
         }
-        //console.log(strZone)
     },
     ondrop: function (event) {
         var draggableElement = event.relatedTarget,
@@ -294,7 +234,6 @@ interact('.dropzone').dropzone({
         // update the posiion attributes
         draggableElement.setAttribute('data-x', x);
         draggableElement.setAttribute('data-y', y);
-        //event.relatedTarget.textContent = 'Dropped';
         const strPiece = draggableElement.className;
         const wordsPiece = strPiece.split(' ');
         var tmpStrPiece = "piece-";
@@ -306,17 +245,14 @@ interact('.dropzone').dropzone({
             }
         });
         const numPiece = wordsPiece[wordIndex].split('-');
-        console.log("pice: " + numPiece[1]);
-
         const strZone = dropzoneElement.id;
         const numZone = strZone.split('-');
-        console.log("Zone: " + numZone[1]);
 
         if (numZone[1] === numPiece[1]) {
             gameCompleteArray[numZone[1] - 1] = true;
-            //console.log(gameCompleteArray);
 
             if (allAreTrue(gameCompleteArray)) {
+                //EDIT THIS FOR WIN SCREEN
                 const victoryBlock = document.getElementsByClassName("draggable");
                 for (let i = 0; i < victoryBlock.length; i++) {
                     victoryBlock[i].innerHTML = "WIIIIIINNN";
@@ -368,9 +304,6 @@ window.dragMoveListener = dragMoveListener;
 
 //Trivia-----------------------------------------------------------------------------------------------------------
 
-//var activePlayer=1
-
-
 function setNextQuestion(player, unlockPiece) {
     resetState(player)
     showQuestion(shuffledQuestions[currentQuestionIndex], player, unlockPiece)
@@ -395,17 +328,12 @@ function showQuestion(question, player, unlockPiece) {
 }
 
 function resetState(player) {
-    //waitHolderElement[activePlayer].classList.remove('hide')
-    //questionContainerElement[activePlayer].classList.add('hide')
     clearStatusClass(document.body)
-    // updatePlayer()
     waitHolderElement[player].classList.add('hide')
     questionContainerElement[player].classList.remove('hide')
     while (answerButtonsElement[player].firstChild) {
         answerButtonsElement[player].removeChild(answerButtonsElement[player].firstChild)
     }
-
-
 }
 
 function selectAnswer(e) {
@@ -419,8 +347,6 @@ function selectAnswer(e) {
         setStatusClass(button, button.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-
-        //currentQuestionIndex++
         setTimeout(() => {
             if (!correct) {
                 setNextQuestion(selectedButton.player, selectedButton.unlockPiece)
@@ -429,12 +355,10 @@ function selectAnswer(e) {
                 waitHolderElement[selectedButton.player].classList.remove('hide')
                 questionContainerElement[selectedButton.player].classList.add('hide')
                 availablePlayers.push(selectedButton.player)
-                console.log("------unlock: " + selectedButton.unlockPiece)
                 const unlockedPiece = document.getElementsByClassName(selectedButton.unlockPiece);
                 unlockedPiece[0].classList.add('draggable');
                 var image = "url(assets/images3/" + selectedButton.unlockPiece + ".jpg)";
                 unlockedPiece[0].style.backgroundImage = image;
-                //.classList.add('draggable');
             }
 
         }, 1000);
@@ -465,15 +389,6 @@ function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
-/*
-function updatePlayer(){
-    activePlayer++
-    if(activePlayer>=4){
-        activePlayer=0
-    }
-    waitHolderElement[activePlayer].classList.add('hide')
-    questionContainerElement[activePlayer].classList.remove('hide')
-}*/
 
 const questions = [{
         question: 'What do we call an object that we are unable to see through at all?',
@@ -765,6 +680,5 @@ const questions = [{
             }
         ]
     }
-
 
 ]
