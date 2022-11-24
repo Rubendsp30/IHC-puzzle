@@ -1,0 +1,49 @@
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+html,
+body {
+  --hue: var(--hue-wrong);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: black;
+  background-color: hsl(var(--hue), 100%, 20%);
+  /*display: flex;
+    justify-content: center;
+    border: 1px solid green;*/
+  /* width: 1278px;
+  height: 718px;*/
+  width: 4092px;
+  height: 2156px;
+  touch-action: none;
+}
+
+h1{
+  font-size: 15em;
+}
+
+
+.btn{
+  font-size: 5em;
+  color: black;
+   /* color: white!important;
+  border: 2px solid blue;*/
+  width: 8em;
+  background-color: white;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+img{
+  width: 60%;
+  height: 60%;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+/*
+* {
+  box-sizing: border-box;
+  border: 1px solid blue;
+}*/
