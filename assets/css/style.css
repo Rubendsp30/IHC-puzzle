@@ -6,21 +6,23 @@
 
 html,
 body {
-  --hue: var(--hue-neutral);
-  font-family: Arial, Helvetica, sans-serif;
+  /*--hue: var(--hue-neutral);*/
+  font-family: Signika Negative, sans-serif;
   text-align: center;
-  background-color: hsl(var(--hue), 100%, 20%);
+  background-color: #1d1d1d;
   width: 4092px;
   height: 2156px;
   touch-action: none;
 }
 
 body.correct {
-  --hue: var(--hue-correct);
+  /*--hue: var(--hue-correct);*/
+  background-color: darkgreen;
 }
 
 body.wrong {
-  --hue: var(--hue-wrong);
+  background-color: darkred;
+  /*--hue: var(--hue-wrong);*/
 }
 
 /*
@@ -189,14 +191,15 @@ body.wrong {
 td {
   width: 119px;
   height: 119px;
-  border: 0.5px solid blue;
+  border: 0.5px solid white;
+  background-color: #262626 !important;
 }
 
 
 #schedule {
   width: 800px;
   height: 800px;
-  border: 2px solid purple;
+  border: 2px solid white;
   border-spacing: 0;
 }
 
@@ -228,20 +231,20 @@ td {
 
 .piece-container-1 {
   width: 163 px;
-  height: 1120px;
-  background-color: white;
+  height: 1160px;
+  /*background-color: white;*/
 }
 
 .piece-container-2 {
   width: 163px;
-  height: 960px;
-  background-color: white;
+  height: 990px;
+  /*background-color: white;*/
 }
 
 .piece-container-3 {
   width: 490px;
   height: 330px;
-  background-color: white;
+  /*background-color: white;*/
   margin-top: 20px;
   margin-left: 920px;
 }
@@ -270,7 +273,7 @@ td {
 .piece-container-4 {
   width: 490px;
   height: 330px;
-  background-color: white;
+  /*background-color: white;*/
   margin-top: 49.2px;
   margin-left: 20.9px;
 }

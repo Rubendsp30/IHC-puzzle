@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0 , user-scalable=no">
+      <meta name="HandheldFriendly" content="true" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href='//fonts.googleapis.com/css?family=Signika+Negative:300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="assets/css/menuStyle.css">
+   </head>
+   <body>
+      <!-- Ecra inicial -->
+
+      <div class = "menu1" id ="front">
+         <div class = "title">
+            <h1 >Collab Puzzle</h1>
+         </div>
+         <div class = "continue">
+            <p >Tap to Continue...</p>
+         </div>
+      </div>
+
+      <!-- Número jogadores -->
+      <div id ="numb_players" class = "menu1">
+         <h1 class = "title" id = "title_numb">Number of Players</h1>
+         <div class="buttons-selection-row">
+            <div class="container-selection">
+               <li class = 'btn2' id ="2players"> 2 Players</li>
+               <li class = 'btn2' id="4players">4 Players</li>
+            </div>
+         </div>
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_players" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+               <button type="submit">
+               <img class="definition" id = "definition_players" src="assets/cog.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Setings ecra num jogadores -->
+      <div id ="def1" class = "menu1">
+         <h1 class = "title">Settings</h1>
+         <div class="buttons-selection-row">
+            <div class="container-selection">
+               <li class = 'btn2' id ="nothing"> Settings slider</li>
+            </div>
+         </div>
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_def" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modo de jogo -->
+      <div id ="play_modes" class = "menu1">
+         <h1 class = "title">Play Modes</h1>
+         <div class="buttons-selection-row">
+            <div class="container-selection">
+               <li class = 'btn3' id ="puzzle1">Jiggsaw Puzzle</li>
+               <li class = 'btn3' id="puzzle2">Block Puzzle</li>
+               <li class = 'btn3' id="difficulty">Dificulty</li>
+            </div>
+         </div>
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_modes" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+               <button type="submit">
+               <img class="definition" id = "definition_modes" src="assets/cog.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Setings ecra modo jogo -->
+      <div id ="def2" class = "menu1">
+         <h1 class = "title">Settings</h1>
+         <div class="buttons-selection-row">
+            <div class="container-selection">
+               <li class = 'btn2' id ="nothing"> Settings slider</li>
+            </div>
+         </div>
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_def2" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Dificuldade -->
+      <div id ="cont" class = "menu1">
+         <h1 class = "title">Difficulty</h1>
+         <div class="buttons-selection-row">
+            <div class="container-selection">
+
+               <label>
+                   <input type="radio" id="easy" name="dark" value=0>
+                   <span class="design"></span>
+                   <span class="text">Easy</span>
+               </label>
+
+               <label>
+                   <input type="radio" id="normal" name="dark" value=1 checked>
+                   <span class="design"></span>
+                   <span class="text">Normal</span>
+               </label>
+
+               <label>
+                   <input type="radio" id="hard" name="dark" value=2>
+                   <span class="design"></span>
+                   <span class="text">Hard</span>
+               </label>
+
+            </div>
+         </div>
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_difficulty" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+
+      <!-- Escolher puzzle -->
+      <div id ="select_puzzle" class = "menu1">
+         <h1 class = "title">Select Puzzle</h1>
+
+         <div class="buttons-selection-row">
+               <button type="submit">
+               <img class="puzzle" id = "puzzle_select_1" src="assets/puzzle-thumbnail/puzzle1.jpg" alt="buttonpng" border="0" />
+               </button>
+
+                <button type="submit">
+               <img class="puzzle" id = "puzzle_select_2" src="assets/puzzle-thumbnail/puzzle2.jpg" alt="buttonpng" border="0" />
+               </button>
+
+                <button type="submit">
+               <img class="puzzle" id = "puzzle_select_3" src="assets/puzzle-thumbnail/puzzle3.jpg" alt="buttonpng" border="0" />
+               </button>
+
+         </div>
+
+               <div class="buttons-selection-row">
+               <button type="submit">
+               <img class="puzzle" id = "puzzle_select_4" src="assets/puzzle-thumbnail/puzzle4.jpg" alt="buttonpng" border="0" />
+               </button>
+
+                <button type="submit">
+               <img class="puzzle" id = "puzzle_select_5" src="assets/puzzle-thumbnail/puzzle5.jpg" alt="buttonpng" border="0" />
+               </button>
+
+                <button type="submit">
+               <img class="puzzle" id = "puzzle_select_6" src="assets/puzzle-thumbnail/puzzle6.jpg" alt="buttonpng" border="0" />
+               </button>
+
+         </div>
+
+         <div class="buttons-config-row">
+            <div class="container-config">
+               <button type="submit">
+               <img class="back" id = "back_select" src="assets/arrow.png" alt="buttonpng" border="0" />
+               </button>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js" type="module"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="module"></script>
+      <script  type="module" src="assets/js/main_menu.js"></script>
+   </body>
+</html>

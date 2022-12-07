@@ -1,0 +1,234 @@
+body, html {
+  font-family: Signika Negative, sans-serif;
+  background: #111;
+  color:#efefef;
+  width: 4092px;
+  height: 2156px;
+  touch-action: none;
+  padding: 0;
+  /*box-sizing: border-box;
+  border: 1px solid red;*/
+}
+/*
+* {
+  box-sizing: border-box;
+  border: 1px solid red;
+}*/
+
+.menu1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /*box-sizing: border-box;
+  border: 1px solid green;*/
+  background-color:#1d1d1d;
+}
+
+.back{
+  width: 10rem;
+  height: 10rem;
+}
+
+.definition{
+  width: 10rem;
+  height: 10rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+ .buttons-selection-row{
+    display: flex;
+  justify-content: center;
+ /* box-sizing: border-box;
+  border: 1px solid blue;*/
+}
+
+.buttons-config-row{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.container-config{
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-selection{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /*box-sizing: border-box;
+  border: 1px solid yellow;*/
+}
+
+/*---------------FRONT---------------*/
+#front{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#front .title{
+  /*box-sizing: border-box;
+  border: 1px solid yellow;*/
+}
+
+#front h1{
+  font-size: 7rem;
+}
+
+#front .continue{
+  font-size: 7rem;
+
+}
+
+/*---------------NUM PLAYERS---------------*/
+
+#numb_players{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#numb_players h1{
+  font-size: 7rem;
+}
+
+.btn2, .btn3{
+  font-size: 7rem;
+  cursor: pointer;/*n necessário*/
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background-color:rgb(38, 38, 38);
+  border: solid 1px transparent;
+  border-radius:20px;
+  margin: 55px 25px;
+  padding: 30px 50px 30px 50px;
+  text-align: center;
+}
+
+/*---------------Settings from players---------------*/
+
+#def1{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#def1 h1{
+  font-size: 7rem;
+}
+
+
+
+/*---------------PLAY MODES---------------*/
+
+#play_modes{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#play_modes h1{
+  font-size: 7rem;
+}
+
+/*---------------Settings from play modes---------------*/
+
+#def2{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#def2 h1{
+  font-size: 7rem;
+}
+
+/*---------------Difficuldade---------------*/
+
+#cont{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#cont h1{
+  font-size: 7rem;
+}
+
+
+.dark {
+  --primary: hsl(1, 100%, 68%);
+  --other: hsl(0, 0%, 90%);
+
+  background: hsl(0, 0%, 10%);
+}
+
+label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 12px 0;
+  cursor: pointer;
+  position: relative;
+  font-size: 7rem;
+}
+
+input {
+  opacity: 1;
+  border: 0px;
+    width: 7rem;
+    height: 7rem;
+    margin-right: 30px;
+}
+
+/*---------------Select puzzle---------------*/
+
+#select_puzzle{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#select_puzzle h1{
+  font-size: 7rem;
+}
+
+.puzzle{
+  width: 50rem;
+  height: 50rem;
+}
+
+ #select_puzzle .buttons-selection-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

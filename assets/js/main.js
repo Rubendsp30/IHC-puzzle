@@ -1,5 +1,9 @@
 var rows = 5;
 var columns = 5;
+//import puzzle_choice from '/main_menu.js'
+//console.log("p: " +puzzle_choice)
+var selected_puzzle = "url(assets/puzzles/block/6/";
+
 
 const waitHolderElement1 = document.getElementById('wait-holder1')
 const waitHolderElement2 = document.getElementById('wait-holder2')
@@ -27,6 +31,7 @@ const answerButtonsElement = [answerButtonsElement1, answerButtonsElement2, answ
 
 let shuffledQuestions, currentQuestionIndex
 
+var distance;
 
 // Set the date we're counting down to
 var countDownDate = new Date().getTime() + (20 * 60 * 1000);
@@ -79,7 +84,7 @@ window.onload = function () {
 
     const piecesBlock = document.getElementsByClassName("drag-drop");
     for (let i = 0; i < piecesBlock.length; i++) {
-        var image = "url(assets/images3/piece-" + pieces[i] + ".jpg)";
+        var image = selected_puzzle+"piece-" + pieces[i] + ".jpg)";
         piecesBlock[i].style.backgroundImage = image;
         piecesBlock[i].style.backgroundSize = "cover";
         piecesBlock[i].style.backgroundRepeat = "no-repeat";
@@ -146,7 +151,7 @@ interact('.locked')
             }
         });
         const numPlayer = wordsPlayer[wordIndex].split('-');
-
+        var plIndex;
         if ((plIndex = availablePlayers.indexOf(parseInt(numPlayer[1]))) != -1) {
             availablePlayers.splice(plIndex, 1)
             if (availablePlayers.length >= 1) {
@@ -252,12 +257,13 @@ interact('.dropzone').dropzone({
             gameCompleteArray[numZone[1] - 1] = true;
 
             if (allAreTrue(gameCompleteArray)) {
+                window.location.href = "win.html";
                 //EDIT THIS FOR WIN SCREEN
-                const victoryBlock = document.getElementsByClassName("draggable");
+               /* const victoryBlock = document.getElementsByClassName("draggable");
                 for (let i = 0; i < victoryBlock.length; i++) {
                     victoryBlock[i].innerHTML = "WIIIIIINNN";
 
-                }
+                }*/
 
             }
 
@@ -340,7 +346,7 @@ function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     if (!correct) {
-        countDownDate = countDownDate - (2 * 60 * 1000)
+        countDownDate = countDownDate - (1 * 60 * 1000)
     }
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement[selectedButton.player].children).forEach(button => {
@@ -357,7 +363,7 @@ function selectAnswer(e) {
                 availablePlayers.push(selectedButton.player)
                 const unlockedPiece = document.getElementsByClassName(selectedButton.unlockPiece);
                 unlockedPiece[0].classList.add('draggable');
-                var image = "url(assets/images3/" + selectedButton.unlockPiece + ".jpg)";
+                var image = selected_puzzle + selectedButton.unlockPiece + ".jpg)";
                 unlockedPiece[0].style.backgroundImage = image;
             }
 
