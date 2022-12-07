@@ -12,7 +12,7 @@ var gameOverSound;
 window.onload = function () {
 
 
-    gameOverSound = new sound("assets/game-over.mp3");
+    gameOverSound = new sound("assets/victory.mp3");
     gameOverSound.play();
 }
 

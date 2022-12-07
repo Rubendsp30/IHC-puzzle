@@ -1,7 +1,14 @@
 var rows = 5;
 var columns = 5;
 //import puzzle_choice from '/main_menu.js'
-var selected_puzzle;
+var selected_puzzle = 5;
+
+
+var questionSound;
+var dropSound;
+var rightSound;
+var wrongSound;
+
 
 
 const waitHolderElement1 = document.getElementById('wait-holder1')
@@ -118,6 +125,12 @@ window.onload = function () {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     console.log(questions.length)
     currentQuestionIndex = 0
+
+    questionSound = new sound("assets/question.wav");
+    dropSound = new sound("assets/drop.mp3");
+
+    rightSound = new sound("assets/right-ans.mp3");
+    wrongSound = new sound("assets/wrong-ans.mp3");
 }
 
 
@@ -127,13 +140,32 @@ function allAreTrue(arr) {
     return arr.every(element => element === true);
 }
 
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
 //Interact.js-----------------------------------------------------------------------------------------------------------
 var element = document.getElementById("schedule");
 var player = 0
-interact('.btn');
 
 let availablePlayers = [0, 1, 2, 3]
 availablePlayers.sort(() => Math.random() - .5)
+    /*    interact('.btn').on('tap', function (event) {
+            selectAnswer;
+        event.preventDefault()
+        });*/
 
 interact('.locked')
     .on('tap', function (event) {
@@ -160,13 +192,15 @@ interact('.locked')
         if ((plIndex = availablePlayers.indexOf(parseInt(numPlayer[1]))) != -1) {
             availablePlayers.splice(plIndex, 1)
             if (availablePlayers.length >= 1) {
-                event.target.classList.remove("locked");
+                questionSound.play();
+                event.target.classList.remove("locked");         
                 setNextQuestion(availablePlayers.shift(), unlockPiece)
             }
             availablePlayers.push(parseInt(numPlayer[1]))
             availablePlayers.sort(() => Math.random() - .5)
         } else {
             if (availablePlayers.length >= 1) {
+                questionSound.play();
                 event.target.classList.remove("locked");
                 setNextQuestion(availablePlayers.shift(), unlockPiece)
             }
@@ -258,6 +292,8 @@ interact('.dropzone').dropzone({
         const strZone = dropzoneElement.id;
         const numZone = strZone.split('-');
 
+                dropSound.play();
+
         if (numZone[1] === numPiece[1]) {
             gameCompleteArray[numZone[1] - 1] = true;
 
@@ -331,6 +367,7 @@ function showQuestion(question, player, unlockPiece) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
+
         button.addEventListener('click', selectAnswer)
         button.player = player;
         button.unlockPiece = unlockPiece;
@@ -351,6 +388,7 @@ function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     if (!correct) {
+        wrongSound.play();
         countDownDate = countDownDate - (1 * 60 * 1000)
     }
     setStatusClass(document.body, correct)
@@ -362,6 +400,7 @@ function selectAnswer(e) {
             if (!correct) {
                 setNextQuestion(selectedButton.player, selectedButton.unlockPiece)
             } else {
+                rightSound.play();
                 clearStatusClass(document.body)
                 waitHolderElement[selectedButton.player].classList.remove('hide')
                 questionContainerElement[selectedButton.player].classList.add('hide')
