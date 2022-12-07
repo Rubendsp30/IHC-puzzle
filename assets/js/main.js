@@ -4,7 +4,6 @@ var columns = 5;
 var selected_puzzle;
 
 
-
 const waitHolderElement1 = document.getElementById('wait-holder1')
 const waitHolderElement2 = document.getElementById('wait-holder2')
 const waitHolderElement3 = document.getElementById('wait-holder3')
@@ -71,7 +70,7 @@ window.onload = function () {
 
     var puzzle_choice = sessionStorage.getItem("puzzle_choice");
     console.log("p: " + puzzle_choice)
-    selected_puzzle = "url(assets/puzzles/block/"+puzzle_choice+"/";
+    selected_puzzle = "url(assets/puzzles/block/" + puzzle_choice + "/";
 
     let pieces = [];
     for (let i = 1; i <= rows * columns; i++) {
@@ -89,7 +88,7 @@ window.onload = function () {
 
     const piecesBlock = document.getElementsByClassName("drag-drop");
     for (let i = 0; i < piecesBlock.length; i++) {
-        var image = selected_puzzle+"piece-" + pieces[i] + ".jpg)";
+        var image = selected_puzzle + "piece-" + pieces[i] + ".jpg)";
         piecesBlock[i].style.backgroundImage = image;
         piecesBlock[i].style.backgroundSize = "cover";
         piecesBlock[i].style.backgroundRepeat = "no-repeat";
@@ -117,6 +116,7 @@ window.onload = function () {
     }
 
     shuffledQuestions = questions.sort(() => Math.random() - .5)
+    console.log(questions.length)
     currentQuestionIndex = 0
 }
 
@@ -264,11 +264,11 @@ interact('.dropzone').dropzone({
             if (allAreTrue(gameCompleteArray)) {
                 window.location.href = "win.html";
                 //EDIT THIS FOR WIN SCREEN
-               /* const victoryBlock = document.getElementsByClassName("draggable");
-                for (let i = 0; i < victoryBlock.length; i++) {
-                    victoryBlock[i].innerHTML = "WIIIIIINNN";
+                /* const victoryBlock = document.getElementsByClassName("draggable");
+                 for (let i = 0; i < victoryBlock.length; i++) {
+                     victoryBlock[i].innerHTML = "WIIIIIINNN";
 
-                }*/
+                 }*/
 
             }
 
@@ -481,212 +481,675 @@ const questions = [{
             }
         ]
     },
-
     {
-        question: 'Question 1',
+        question: 'Who was the first King of Portugal?',
         answers: [{
-                text: 'False',
+                text: 'D. João II',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'D. Afonso Henriques',
                 correct: true
             },
             {
-                text: 'False',
+                text: 'D. Afonso IV',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'D. Filipe',
                 correct: false
             }
         ]
     },
 
     {
-        question: 'Question 2',
+        question: "Which of these ones isn't a common state of matter?",
         answers: [{
-                text: 'False',
+                text: 'Liquid',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Solid',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Frozen',
+                correct: true
+            },
+            {
+                text: 'Gas',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: 'Who was youngest player to score a hat-trick at FIFA World Cup Final Stage?',
+        answers: [{
+                text: 'Pelé',
+                correct: true
+            },
+            {
+                text: 'Kylian Mbappé',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Gonçalo Ramos',
+                correct: false
+            },
+            {
+                text: 'William Carvalho',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: "Which of these colors isn't a primary one?",
+        answers: [{
+                text: 'Magenta',
+                correct: false
+            },
+            {
+                text: 'Cyan',
+                correct: false
+            },
+            {
+                text: 'Yellow',
+                correct: false
+            },
+            {
+                text: 'Orange',
+                correct: true
+            }
+        ]
+    },
+    {
+        question: 'How many castles are in the Portuguese Flag?',
+        answers: [{
+                text: '7',
+                correct: true
+            },
+            {
+                text: '8',
+                correct: false
+            },
+            {
+                text: '10',
+                correct: false
+            },
+            {
+                text: '6',
+                correct: false
+            }
+        ]
+    },
+
+
+    {
+        question: 'What is the most common name given to Sodium Chloride?',
+        answers: [{
+                text: 'Sugar',
+                correct: false
+            },
+            {
+                text: 'Water',
+                correct: false
+            },
+            {
+                text: 'Salt',
+                correct: true
+            },
+            {
+                text: 'Sand',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: 'How much is 2 + 4 x 3?',
+        answers: [{
+                text: '18',
+                correct: false
+            },
+            {
+                text: '14',
+                correct: true
+            },
+            {
+                text: '12',
+                correct: false
+            },
+            {
+                text: '24',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: 'How many calories are stored in 1 pound of body fat?',
+        answers: [{
+                text: '3500',
+                correct: true
+            },
+            {
+                text: '6000',
+                correct: false
+            },
+            {
+                text: '400',
+                correct: false
+            },
+            {
+                text: '1100',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: 'What type of information does a DNA molecule carry?',
+        answers: [{
+                text: 'IT',
+                correct: false
+            },
+            {
+                text: 'Mitocondrias',
+                correct: false
+            },
+            {
+                text: 'RNA',
+                correct: false
+            },
+            {
+                text: 'Genetic',
                 correct: true
             }
         ]
     },
 
     {
-        question: 'Question 3',
+        question: 'When standing in sunlight, what vitamin does your body synthesize?',
         answers: [{
-                text: 'False',
+                text: 'C',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'B',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'D',
+                correct: true
+            },
+            {
+                text: 'A',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'What name is given to the unit of electrical resistance?',
+        answers: [{
+                text: 'Volt',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Ohm',
+                correct: true
+            },
+            {
+                text: 'Ampere',
+                correct: false
+            },
+            {
+                text: 'kg',
+                correct: false
+            }
+        ]
+    },
+
+    {
+        question: "What color is human blood that isn't oxygenated?",
+        answers: [{
+                text: 'Yellow',
+                correct: false
+            },
+            {
+                text: 'Brown',
+                correct: false
+            },
+            {
+                text: 'Black',
+                correct: false
+            },
+            {
+                text: 'Red',
                 correct: true
             }
         ]
     },
 
     {
-        question: 'Question 4',
+        question: 'Which country is the largest in the World?',
         answers: [{
-                text: 'False',
+                text: 'Canada',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Russia',
+                correct: true
+            },
+            {
+                text: 'USA',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Brasil',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Lisbon was destroyed by what natural disaster in 1755?',
+        answers: [{
+                text: 'Earthquake',
+                correct: true
+            },
+            {
+                text: 'Tornado',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Tsunami',
+                correct: false
+            },
+            {
+                text: 'Rock Slide',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'On what peninsula does Portugal lie?',
+        answers: [{
+                text: 'Italian Peninsula',
+                correct: true
+            },
+            {
+                text: 'Scandinavian Peninsula',
+                correct: false
+            },
+            {
+                text: 'Corean Peninsula',
+                correct: false
+            },
+            {
+                text: 'Arabian Peninsula',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'On which continent is Portugal?',
+        answers: [{
+                text: 'Europe',
+                correct: true
+            },
+            {
+                text: 'America',
+                correct: false
+            },
+            {
+                text: 'Asia',
+                correct: false
+            },
+            {
+                text: 'Africa',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Which Disney character famously leaves a glass slipper behind at a royal ball?',
+        answers: [{
+                text: 'Pocahontas',
+                correct: false
+            },
+            {
+                text: 'Sleeping Beauty',
+                correct: false
+            },
+            {
+                text: 'Cinderella',
+                correct: true
+            },
+            {
+                text: 'Elsa',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'What name is given to the revolving belt machinery in an airport that delivers checked luggage from the plane to baggage reclaim?',
+        answers: [{
+                text: 'Hangar',
+                correct: false
+            },
+            {
+                text: 'Terminal',
+                correct: false
+            },
+            {
+                text: 'Concourse',
+                correct: false
+            },
+            {
+                text: 'Carousel',
                 correct: true
             }
         ]
     },
-
     {
-        question: 'Question 5',
+        question: 'Which of these brands was chiefly associated with the manufacture of household locks?',
         answers: [{
-                text: 'False',
+                text: 'Phillips',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Flymo',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Chubb',
+                correct: true
+            },
+            {
+                text: 'Ronseal',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'The hammer and sickle is one of the most recognisable symbols of which political ideology?',
+        answers: [{
+                text: 'Republicanism',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Communism',
+                correct: true
+            },
+            {
+                text: 'Conservatism',
+                correct: false
+            },
+            {
+                text: 'Liberalism',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Which toys have been marketed with the phrase “robots in disguise”?',
+        answers: [{
+                text: 'Bratz Dolls',
+                correct: false
+            },
+            {
+                text: 'Sylvanian Families',
+                correct: false
+            },
+            {
+                text: 'Hatchimals',
+                correct: false
+            },
+            {
+                text: 'Transformers',
                 correct: true
             }
         ]
     },
-
     {
-        question: 'Question 6',
+        question: 'What does the word loquacious mean?',
         answers: [{
-                text: 'False',
+                text: 'Angry',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Chatty',
+                correct: true
+            },
+            {
+                text: 'Beautiful',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Shy',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Obstetrics is a branch of medicine particularly concerned with what?',
+        answers: [{
+                text: 'Childbirth',
+                correct: true
+            },
+            {
+                text: 'Broken bones',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Heart conditions',
+                correct: false
+            },
+            {
+                text: 'Old age',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'In Doctor Who, what was the signature look of the fourth Doctor, as portrayed by Tom Baker?',
+        answers: [{
+                text: 'Bow-tie, braces and tweed jacket',
+                correct: false
+            },
+            {
+                text: 'Wide-brimmed hat and extra long scarf',
+                correct: true
+            },
+            {
+                text: 'Pinstripe suit and trainers',
+                correct: false
+            },
+            {
+                text: 'Cape, velvet jacket and frilly shirt',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Which of these religious observances lasts for the shortest period of time during the calendar year?',
+        answers: [{
+                text: 'Ramadan',
+                correct: false
+            },
+            {
+                text: 'Diwali',
+                correct: true
+            },
+            {
+                text: 'Lent',
+                correct: false
+            },
+            {
+                text: 'Hanukkah',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: ' Construction of which of these famous landmarks was completed first?',
+        answers: [{
+                text: 'Empire State Building',
+                correct: false
+            },
+            {
+                text: 'Royal Albert Hall',
+                correct: false
+            },
+            {
+                text: 'Eiffel Tower',
+                correct: false
+            },
+            {
+                text: 'Big Ben Clock Tower',
                 correct: true
             }
         ]
     },
-
     {
-        question: 'Question 7',
+        question: 'Which of these cetaceans is classified as a “toothed whale”?',
         answers: [{
-                text: 'False',
+                text: 'Gray whale',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Minke whale',
                 correct: false
             },
             {
-                text: 'False',
-                correct: false
-            },
-            {
-                text: 'True',
+                text: 'Sperm whale',
                 correct: true
+            },
+            {
+                text: 'Humpback whale',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'Who is the only British politician to have held all four “Great Offices of State” at some point during their career?',
+        answers: [{
+                text: 'David Lloyd George',
+                correct: false
+            },
+            {
+                text: 'Harold Wilson',
+                correct: false
+            },
+            {
+                text: 'James Callaghan',
+                correct: true
+            },
+            {
+                text: 'John Major',
+                correct: false
+            }
+        ]
+    },
+    {
+        question: 'In 1718, which pirate died in battle off the coast of what is now North Carolina?',
+        answers: [{
+                text: 'Calico Jack',
+                correct: false
+            },
+            {
+                text: 'Blackbeard',
+                correct: true
+            },
+            {
+                text: 'Bartholomew Roberts',
+                correct: false
+            },
+            {
+                text: 'Captain Kidd',
+                correct: false
+            }
+        ]
+    },
+        {
+        question: 'How many nouns are in the following sentence: The rabbit ran to the cafeteria and ate a big salad',
+        answers: [{
+                text: 'three',
+                correct: true
+            },
+            {
+                text: 'two',
+                correct: false
+            },
+            {
+                text: 'four',
+                correct: false
+            },
+            {
+                text: 'five',
+                correct: false
             }
         ]
     },
 
-    {
-        question: 'Question 8',
+            {
+        question: 'In the initials of the federal agency known as NASA, what does the first "A" stand for?',
         answers: [{
-                text: 'False',
+                text: 'american',
                 correct: false
             },
             {
-                text: 'False',
-                correct: false
-            },
-            {
-                text: 'False',
-                correct: false
-            },
-            {
-                text: 'True',
+                text: 'aeronautics',
                 correct: true
+            },
+            {
+                text: 'association',
+                correct: false
+            },
+            {
+                text: 'administration',
+                correct: false
             }
         ]
     },
 
-    {
-        question: 'Question 9',
+                {
+        question: "The moon casts a shadow on Earth during the",
         answers: [{
-                text: 'False',
+                text: 'Half moon',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Lunar eclipse',
                 correct: false
             },
             {
-                text: 'False',
-                correct: false
-            },
-            {
-                text: 'True',
+                text: 'Solar eclipse',
                 correct: true
+            },
+            {
+                text: 'New moon',
+                correct: false
             }
         ]
     },
-
-    {
-        question: 'Question 10',
+                    {
+        question: "A ____ organism is an organism with only one cell.",
         answers: [{
-                text: 'False',
+                text: 'Planktonian',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Embryonic',
                 correct: false
             },
             {
-                text: 'False',
+                text: 'Multicellular',
                 correct: false
             },
             {
-                text: 'True',
+                text: 'Unicellular',
                 correct: true
             }
         ]
