@@ -147,6 +147,7 @@ $('#puzzle_select_1').on('click', function (e) {
   puzzle_choice = 1;
  // module.exports = {puzzle_choice};
  // export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
   window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
@@ -154,6 +155,7 @@ $('#puzzle_select_1').on('click', function (e) {
 $('#puzzle_select_2').on('click', function (e) {
   puzzle_choice = 2;
   //export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
   window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
@@ -161,6 +163,7 @@ $('#puzzle_select_2').on('click', function (e) {
 $('#puzzle_select_3').on('click', function (e) {
   puzzle_choice = 3;
  // export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
   window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
@@ -168,6 +171,7 @@ $('#puzzle_select_3').on('click', function (e) {
 $('#puzzle_select_4').on('click', function (e) {
   puzzle_choice = 4;
  // export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
   window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
@@ -175,6 +179,7 @@ $('#puzzle_select_4').on('click', function (e) {
 $('#puzzle_select_5').on('click', function (e) {
   puzzle_choice = 5;
  // export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
   window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
@@ -182,6 +187,7 @@ $('#puzzle_select_5').on('click', function (e) {
 $('#puzzle_select_6').on('click', function (e) {
   puzzle_choice = 6;
  // export puzzle_choice;
+  sessionStorage.setItem("puzzle_choice", puzzle_choice);
     window.location.href = "index.html";
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });

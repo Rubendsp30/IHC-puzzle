@@ -1,8 +1,8 @@
 var rows = 5;
 var columns = 5;
 //import puzzle_choice from '/main_menu.js'
-//console.log("p: " +puzzle_choice)
-var selected_puzzle = "url(assets/puzzles/block/6/";
+var selected_puzzle;
+
 
 
 const waitHolderElement1 = document.getElementById('wait-holder1')
@@ -68,6 +68,11 @@ var x = setInterval(function () {
 }, 1000)
 
 window.onload = function () {
+
+    var puzzle_choice = sessionStorage.getItem("puzzle_choice");
+    console.log("p: " + puzzle_choice)
+    selected_puzzle = "url(assets/puzzles/block/"+puzzle_choice+"/";
+
     let pieces = [];
     for (let i = 1; i <= rows * columns; i++) {
         pieces.push(i.toString()); //put "1" to "25" into the array (puzzle images names)
