@@ -62,7 +62,6 @@ var x = setInterval(function () {
 window.onload = function () {
 
     var puzzle_choice = sessionStorage.getItem("puzzle_choice");
-    console.log("p: " + puzzle_choice)
     selected_puzzle = "url(assets/puzzles/block/" + puzzle_choice + "/";
 
     let pieces = [];
@@ -109,7 +108,6 @@ window.onload = function () {
     }
 
     shuffledQuestions = questions.sort(() => Math.random() - .5)
-    console.log(questions.length)
     currentQuestionIndex = 0
 
     questionSound = new sound("assets/question.wav");
@@ -180,26 +178,7 @@ interact('.locked')
             event.target.classList.remove("locked");
             playerAvaiable[other]=0;
             setNextQuestion(other, unlockPiece);
-            console.log("tap:" + playerAvaiable)
         }
-
-      /*  var plIndex;
-        if ((plIndex = availablePlayers.indexOf(parseInt(numPlayer[1]))) != -1) {
-            availablePlayers.splice(plIndex, 1)
-            if (availablePlayers.length >= 1) {
-                questionSound.play();
-                event.target.classList.remove("locked");         
-                setNextQuestion(availablePlayers.shift(), unlockPiece)
-            }
-            availablePlayers.push(parseInt(numPlayer[1]))
-            availablePlayers.sort(() => Math.random() - .5)
-        } else {
-            if (availablePlayers.length >= 1) {
-                questionSound.play();
-                event.target.classList.remove("locked");
-                setNextQuestion(availablePlayers.shift(), unlockPiece)
-            }
-        }*/
 
         event.preventDefault()
     });
@@ -384,7 +363,7 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct
     if (!correct) {
         wrongSound.play();
-        countDownDate = countDownDate - (19.8 * 60 * 1000)
+        countDownDate = countDownDate - (1 * 60 * 1000)
     }
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement[selectedButton.player].children).forEach(button => {
