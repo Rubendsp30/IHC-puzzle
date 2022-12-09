@@ -2,7 +2,7 @@
 
 var num_players = 4;
 var play_mode = 1; //0=jig  /  1=block
-var dificulty = document.querySelector('input:checked').value; //0= easy /1=normal /2=hard
+var dificulty = 1; //0= easy /1=normal /2=hard
 var puzzle_choice = 1;
 
 console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
