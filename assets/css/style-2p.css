@@ -1,0 +1,279 @@
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+html,
+body {
+  /*--hue: var(--hue-neutral);*/
+  font-family: Signika Negative, sans-serif;
+  text-align: center;
+  background-color: #1d1d1d;
+  width: 4092px;
+  height: 2156px;
+  touch-action: none;
+}
+
+body.correct {
+  /*--hue: var(--hue-correct);*/
+  background-color: darkgreen;
+}
+
+body.wrong {
+  background-color: darkred;
+  /*--hue: var(--hue-wrong);*/
+}
+
+/*
+* {
+  box-sizing: border-box;
+  border: 1px solid red;
+}*/
+
+.row1 {
+  height: 20%;
+}
+
+.row2 {
+  height: 60%;
+}
+
+.row3 {
+  height: 20%;
+}
+
+.containerz {
+  width: 1225.2px;
+  height: 426.4px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px;
+  padding: 0px 20px 20px 20px;
+  flex-direction: column;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 25%;
+  font-weight: bold;
+  font-size: 2.5rem;
+  border: .1px solid black;
+  border-top: none;
+}
+
+.question-container {
+  width: 75%;
+  height: 90%;
+}
+
+.wait-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 90%;
+  font-weight: bold;
+  font-size: 4rem;
+}
+
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  margin: 0 !important;
+}
+
+
+.rotation1 {
+  transform: rotate(180deg);
+}
+
+
+.rotation2 {
+  position: absolute;
+  transform: rotate(90deg) translate(0, 398px);
+  /*transform-origin: s-left;*/
+  left: 0px;
+}
+
+.rotation3 {
+  position: absolute;
+  transform: rotate(-90deg) translate(0, 398px);
+  transform-origin: s-right;
+  /*right: 0px;*/
+}
+
+.col1 {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  width: 450px;
+}
+
+.col2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  width: 3050px;
+}
+
+.col3 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  width: 450px;
+}
+
+.btn-grid .col {
+  height: 100%;
+}
+
+
+.btn-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 50%);
+  justify-content: center;
+  gap: 15px !important;
+  margin: 10px 0 !important;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  height: 75% !important;
+  border: lightgreen;
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.hide {
+  display: none;
+}
+
+.pices-holder {
+  height: 600px;
+  width: 650px;
+  border: 1px solid purple;
+}
+
+td {
+  width: 119px;
+  height: 119px;
+  border: 0.5px solid white;
+  background-color: #262626 !important;
+}
+
+
+#schedule {
+  width: 800px;
+  height: 800px;
+  border: 2px solid white;
+  border-spacing: 0;
+}
+
+.dropzone {
+  background-color: #ccc;
+  height: 159px;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+  display: inline-block;
+  width: 159px;
+  height: 159px;
+  color: #fff;
+  background-color: #29e;
+  font-size: 50px;
+  position: relative;
+  z-index: 100 !important;
+}
+
+.piece-container-1 {
+  width: 325 px;
+  height: 1160px;
+  /*background-color: white;*/
+}
+
+.piece-container-2 {
+  width: 325px;
+  height: 990px;
+  /*background-color: white;*/
+}
+
+.piece-container-3 {
+  width: 490px;
+  height: 330px;
+  /*background-color: white;*/
+  margin-top: 20px;
+  margin-left: 920px;
+}
+
+.col4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  width: 420px;
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.col5 {
+  display: flex;
+  padding: 0;
+  width: 1430.9px;
+}
+
+.col-holder {
+  width: 1430.9px;
+}
+
+.piece-container-4 {
+  width: 490px;
+  height: 330px;
+  /*background-color: white;*/
+  margin-top: 49.2px;
+  margin-left: 20.9px;
+}

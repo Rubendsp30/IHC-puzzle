@@ -9,31 +9,21 @@ var dropSound;
 var rightSound;
 var wrongSound;
 
-
-
-const waitHolderElement1 = document.getElementById('wait-holder1')
 const waitHolderElement2 = document.getElementById('wait-holder2')
 const waitHolderElement3 = document.getElementById('wait-holder3')
-const waitHolderElement4 = document.getElementById('wait-holder4')
-const waitHolderElement = [waitHolderElement1, waitHolderElement2, waitHolderElement3, waitHolderElement4]
+const waitHolderElement = [waitHolderElement2, waitHolderElement3]
 
-const questionContainerElement1 = document.getElementById('question-container1')
 const questionContainerElement2 = document.getElementById('question-container2')
 const questionContainerElement3 = document.getElementById('question-container3')
-const questionContainerElement4 = document.getElementById('question-container4')
-const questionContainerElement = [questionContainerElement1, questionContainerElement2, questionContainerElement3, questionContainerElement4]
+const questionContainerElement = [questionContainerElement2, questionContainerElement3]
 
-const questionElement1 = document.getElementById('question1')
 const questionElement2 = document.getElementById('question2')
 const questionElement3 = document.getElementById('question3')
-const questionElement4 = document.getElementById('question4')
-const questionElement = [questionElement1, questionElement2, questionElement3, questionElement4]
+const questionElement = [questionElement2, questionElement3]
 
-const answerButtonsElement1 = document.getElementById('answer-buttons1')
 const answerButtonsElement2 = document.getElementById('answer-buttons2')
 const answerButtonsElement3 = document.getElementById('answer-buttons3')
-const answerButtonsElement4 = document.getElementById('answer-buttons4')
-const answerButtonsElement = [answerButtonsElement1, answerButtonsElement2, answerButtonsElement3, answerButtonsElement4]
+const answerButtonsElement = [answerButtonsElement2, answerButtonsElement3]
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -56,20 +46,16 @@ var x = setInterval(function () {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Output the result in an element with id="demo"
-    document.getElementById("timer-container1").innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
     document.getElementById("timer-container2").innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
     document.getElementById("timer-container3").innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
-    document.getElementById("timer-container4").innerHTML = ('0' + minutes).slice(-2) + ":" + ('0' + seconds).slice(-2);
 
     // If the count down is over, write some text 
     if (distance < 0) {
         window.location.replace("./game-over.html");
 
         clearInterval(x);
-        document.getElementById("timer-container1").innerHTML = "EXPIRED";
         document.getElementById("timer-container2").innerHTML = "EXPIRED";
         document.getElementById("timer-container3").innerHTML = "EXPIRED";
-        document.getElementById("timer-container4").innerHTML = "EXPIRED";
     }
 }, 1000)
 
@@ -158,18 +144,12 @@ function sound(src) {
 
 //Interact.js-----------------------------------------------------------------------------------------------------------
 var element = document.getElementById("schedule");
-var player = 0
-
-let availablePlayers = [0, 1, 2, 3]
-availablePlayers.sort(() => Math.random() - .5)
-    /*    interact('.btn').on('tap', function (event) {
-            selectAnswer;
-        event.preventDefault()
-        });*/
+var playerAvaiable=[1,1]
 
 interact('.locked')
     .on('tap', function (event) {
 
+        var other=0;
         const strPlayer = event.target.className;
         const wordsPlayer = strPlayer.split(' ');
         const tmpStrPlayer = "player-";
@@ -189,8 +169,21 @@ interact('.locked')
             }
         });
         const numPlayer = wordsPlayer[wordIndex].split('-');
-        console.log("tap:" + numPlayer[1])
-        var plIndex;
+        
+
+        if(numPlayer[1]=="1"){
+            other = 1;
+        }
+
+        if(playerAvaiable[other]==1){
+            questionSound.play();
+            event.target.classList.remove("locked");
+            playerAvaiable[other]=0;
+            setNextQuestion(other, unlockPiece);
+            console.log("tap:" + playerAvaiable)
+        }
+
+      /*  var plIndex;
         if ((plIndex = availablePlayers.indexOf(parseInt(numPlayer[1]))) != -1) {
             availablePlayers.splice(plIndex, 1)
             if (availablePlayers.length >= 1) {
@@ -206,7 +199,7 @@ interact('.locked')
                 event.target.classList.remove("locked");
                 setNextQuestion(availablePlayers.shift(), unlockPiece)
             }
-        }
+        }*/
 
         event.preventDefault()
     });
@@ -391,7 +384,7 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct
     if (!correct) {
         wrongSound.play();
-        countDownDate = countDownDate - (1 * 60 * 1000)
+        countDownDate = countDownDate - (19.8 * 60 * 1000)
     }
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement[selectedButton.player].children).forEach(button => {
@@ -406,7 +399,7 @@ function selectAnswer(e) {
                 clearStatusClass(document.body)
                 waitHolderElement[selectedButton.player].classList.remove('hide')
                 questionContainerElement[selectedButton.player].classList.add('hide')
-                availablePlayers.push(selectedButton.player)
+                playerAvaiable[selectedButton.player]=1;
                 const unlockedPiece = document.getElementsByClassName(selectedButton.unlockPiece);
                 unlockedPiece[0].classList.add('draggable');
                 var image = selected_puzzle + selectedButton.unlockPiece + ".jpg)";
@@ -421,8 +414,6 @@ function selectAnswer(e) {
             waitHolderElement[selectedButton.player].classList.remove('hide')
             waitHolderElement[0].innerHTML = "All pieces unlocked!" + "<br />" + " Now complete the puzzle :)"
             waitHolderElement[1].innerHTML = "All pieces unlocked!" + "<br />" + " Now complete the puzzle :)"
-            waitHolderElement[2].innerHTML = "All pieces unlocked!" + "<br />" + " Now complete the puzzle :)"
-            waitHolderElement[3].innerHTML = "All pieces unlocked!" + "<br />" + " Now complete the puzzle :)"
         }, 1000);
 
     }

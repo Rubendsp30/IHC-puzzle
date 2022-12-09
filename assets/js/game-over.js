@@ -1,9 +1,17 @@
-$('#menu').on('click', function (e) {
+var num_players = sessionStorage.getItem("num_players");
+
+document.getElementById("menu").addEventListener('click', function (e) {
     window.location.href = "menu.html";
 });
 
-$('#again').on('click', function (e) {
-    window.location.href = "index.html";
+
+document.getElementById("again").addEventListener('click', function (e) {
+    if(num_players=2){
+        window.location.href = "index-2p.html";
+    }
+    else{
+        window.location.href = "index.html";
+    }
 });
 
 var gameOverSound;
