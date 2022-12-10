@@ -1,4 +1,5 @@
 var num_players = sessionStorage.getItem("num_players");
+var play_mode = sessionStorage.getItem("play_mode");
 
 document.getElementById("menu").addEventListener('click', function (e) {
     window.location.href = "menu.html";
@@ -10,7 +11,12 @@ document.getElementById("again").addEventListener('click', function (e) {
         window.location.href = "index-2p.html";
     }
     else{
+      if (play_mode==1) {
         window.location.href = "index.html";
+      }
+      else{
+        window.location.href = "index-jig.html";
+      }
     }
 });
 

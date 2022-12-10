@@ -120,6 +120,7 @@ document.getElementById("definition_players").addEventListener('click', function
   TweenMax.staggerFrom(".puzzle", 2, {scale:0.5, opacity:0, delay:0.1, ease:Elastic.easeOut, force3D:true}, 0.2);
   document.getElementById("select_puzzle").style.display = "flex";
   play_mode = 0;
+  sessionStorage.setItem("play_mode", play_mode);
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
 
@@ -129,6 +130,7 @@ document.getElementById("definition_players").addEventListener('click', function
   TweenMax.staggerFrom(".puzzle", 2, {scale:0.5, opacity:0, delay:0.1, ease:Elastic.easeOut, force3D:true}, 0.2);
   document.getElementById("select_puzzle").style.display = "flex";
   play_mode = 1;
+  sessionStorage.setItem("play_mode", play_mode);
   console.log("Jogadores: "+num_players+"  Modo: " +play_mode+ "  Dificuldade: "+dificulty + "  puzzle: " +puzzle_choice)
 });
 
@@ -191,6 +193,11 @@ document.getElementById("definition_players").addEventListener('click', function
       window.location.href = "index-2p.html";
     }
     else{
-      window.location.href = "index.html";
+      if (play_mode==1) {
+        window.location.href = "index.html";
+      }
+      else{
+        window.location.href = "index-jig.html";
+      }
     }
 }
