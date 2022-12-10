@@ -190,7 +190,12 @@ document.getElementById("definition_players").addEventListener('click', function
 
   function goToGame() {
     if(num_players==2){
-      window.location.href = "index-2p.html";
+      if (play_mode==1) {
+        window.location.href = "index-2p.html";
+      }
+      else{
+        window.location.href = "index-2p-jig.html";
+      }
     }
     else{
       if (play_mode==1) {

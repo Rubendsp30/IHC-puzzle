@@ -8,8 +8,13 @@ document.getElementById("menu").addEventListener('click', function (e) {
 
 
 document.getElementById("again").addEventListener('click', function (e) {
-    if(num_players=2){
+    if(num_players==2){
+      if (play_mode==1) {
         window.location.href = "index-2p.html";
+      }
+      else{
+        window.location.href = "index-2p-jig.html";
+      }
     }
     else{
       if (play_mode==1) {
